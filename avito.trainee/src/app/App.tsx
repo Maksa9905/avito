@@ -1,14 +1,10 @@
 import '@mantine/core/styles.css'
 
-import { Button, MantineProvider } from '@mantine/core'
-import theme from './theme'
+import { MantineProvider } from '@mantine/core'
+import theme from './theme/theme'
 
 function App() {
-  return (
-    <MantineProvider theme={theme}>
-      <Button>123</Button>
-    </MantineProvider>
-  )
+  return <MantineProvider theme={theme}></MantineProvider>
 }
 
 export default App

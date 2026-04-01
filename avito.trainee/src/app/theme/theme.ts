@@ -1,4 +1,7 @@
-import { Button, createTheme } from '@mantine/core'
+import { createTheme } from '@mantine/core'
+import { buttonExtends } from './button.extends'
+import { textInputExtends } from './textinput.extends'
+import { selectExtends } from './select.extends'
 
 const theme = createTheme({
   black: '#262626',
@@ -80,13 +83,9 @@ const theme = createTheme({
     ],
   },
   components: {
-    Button: Button.extend({
-      styles: (theme) => ({
-        label: {
-          fontWeight: theme.fontWeights.medium,
-        },
-      }),
-    }),
+    Button: buttonExtends,
+    TextInput: textInputExtends,
+    Select: selectExtends,
   },
 })
 
