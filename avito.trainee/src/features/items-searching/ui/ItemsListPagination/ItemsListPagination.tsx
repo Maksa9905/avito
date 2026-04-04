@@ -3,7 +3,7 @@ import { useTotalItems } from '../../lib/useTotalItems'
 import { ITEMS_LIST_QUERY_LIMIT } from '../../lib/constants'
 
 import styles from './ItemsListPagination.module.css'
-import { useItemsListQueryParams } from '../../model/useItemsListQueryParams'
+import { useItemsListQueryParams } from '../../lib/useItemsListQueryParams'
 import { useCallback } from 'react'
 
 type ItemsListPaginationProps = {

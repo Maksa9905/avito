@@ -3,7 +3,7 @@ import { TextInput } from '@mantine/core'
 import { useDebouncedCallback } from '@mantine/hooks'
 import { useCallback, useEffect, useState, type ChangeEvent } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useItemsListQueryParams } from '../../model/useItemsListQueryParams'
+import { useItemsListQueryParams } from '../../lib/useItemsListQueryParams'
 
 type ItemsSearchInputProps = {
   className?: string

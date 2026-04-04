@@ -7,7 +7,7 @@ import IconButton from '@/shared/ui/IconButton'
 import styles from './ItemsViewTypeToggle.module.css'
 import { EItemViewType } from '../../model/types'
 import { useCallback } from 'react'
-import { useItemsListQueryParams } from '../../model/useItemsListQueryParams'
+import { useItemsListQueryParams } from '../../lib/useItemsListQueryParams'
 
 const ItemsViewTypeToggle = () => {
   const { query, setQuery } = useItemsListQueryParams()

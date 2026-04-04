@@ -6,7 +6,7 @@ import {
   useQueryParams,
   withDefault,
 } from 'use-query-params'
-import { EItemViewType, type ItemsListQueryParams } from './types'
+import { EItemViewType, type ItemsListQueryParams } from '../model/types'
 import { useCallback } from 'react'
 
 export const useItemsListQueryParams = () => {

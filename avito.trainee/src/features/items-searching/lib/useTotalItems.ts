@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useGetItemsListQuery } from '../api/api'
 import { mapItemsListQueryParams } from '../api/mappers'
-import { useItemsListQueryParams } from '../model/useItemsListQueryParams'
+import { useItemsListQueryParams } from './useItemsListQueryParams'
 
 export const useTotalItems = () => {
   const { query } = useItemsListQueryParams()

@@ -1,6 +1,6 @@
 import type { IItem } from '@/entities/items'
 import { EItemViewType } from '../../model/types'
-import { useItemsListQueryParams } from '../../model/useItemsListQueryParams'
+import { useItemsListQueryParams } from '../../lib/useItemsListQueryParams'
 import ItemGridCard from '../ItemGridCard'
 import ItemListCard from '../ItemListCard'
 

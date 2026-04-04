@@ -19,10 +19,13 @@ const fsdLayers = [
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: fsdLayers.map((layer) => ({
-      find: `@/${layer}`,
-      replacement: path.join(src, layer),
-    })),
+    alias: [
+      ...fsdLayers.map((layer) => ({
+        find: `@/${layer}`,
+        replacement: path.join(src, layer),
+      })),
+      { find: '@/test', replacement: path.join(src, 'test') },
+    ],
   },
   test: {
     globals: true,

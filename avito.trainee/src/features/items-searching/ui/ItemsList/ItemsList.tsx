@@ -1,5 +1,5 @@
 import { cn } from '@/shared/utils/cn'
-import { useItemsListQueryParams } from '../../model/useItemsListQueryParams'
+import { useItemsListQueryParams } from '../../lib/useItemsListQueryParams'
 
 import styles from './ItemsList.module.css'
 import {
@@ -37,7 +37,13 @@ const ItemsList = ({ className }: ItemsListProps) => {
             isLoading
           />
         ))}
-      {!isLoading && items.map((item) => <ItemsListItem item={item} />)}
+      {!isLoading &&
+        items.map((item) => (
+          <ItemsListItem
+            key={item.id}
+            item={item}
+          />
+        ))}
     </>
   )
 

@@ -20,7 +20,7 @@ import { EItemCategory } from '@/entities/items'
 import useCatigoriesOptions from '../../lib/useCategoriesOptions'
 
 import styles from './ItemsFilters.module.css'
-import { useItemsListQueryParams } from '../../model/useItemsListQueryParams'
+import { useItemsListQueryParams } from '../../lib/useItemsListQueryParams'
 
 type ItemsFiltersProps = {
   className?: string

@@ -9,7 +9,7 @@ export default defineConfig([
   globalIgnores(['dist', 'coverage']),
   {
     files: ['**/*.{ts,tsx}'],
-    ignores: ['**/*.{test,spec}.{ts,tsx}'],
+    ignores: ['**/*.{test,spec}.{ts,tsx}', 'src/test/**'],
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
@@ -27,6 +27,20 @@ export default defineConfig([
     languageOptions: {
       ecmaVersion: 2020,
       globals: { ...globals.browser, ...globals.vitest },
+    },
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
+  },
+  {
+    files: ['src/test/**/*.{ts,tsx}'],
+    extends: [js.configs.recommended, tseslint.configs.recommended],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: { ...globals.browser, ...globals.vitest },
+    },
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
 ])
