@@ -77,6 +77,7 @@ describe('ItemsList', () => {
     mockUseGetItemsListQuery.mockReturnValue({
       data: { items: sampleDtos, total: 2 },
       isLoading: false,
+      isSuccess: true,
     } as ReturnType<typeof useGetItemsListQuery>)
 
     renderWithAdsListProviders(<ItemsList />)
@@ -95,6 +96,7 @@ describe('ItemsList', () => {
   it('при пустом списке показывает состояние «ничего не найдено»', () => {
     mockUseGetItemsListQuery.mockReturnValue({
       data: { items: [], total: 0 },
+      isSuccess: true,
       isLoading: false,
     } as any)
 
@@ -129,6 +131,7 @@ describe('ItemsList', () => {
   it('при viewType=list рендерит столько же карточек', () => {
     mockUseGetItemsListQuery.mockReturnValue({
       data: { items: sampleDtos, total: 2 },
+      isSuccess: true,
       isLoading: false,
     } as ReturnType<typeof useGetItemsListQuery>)
 
