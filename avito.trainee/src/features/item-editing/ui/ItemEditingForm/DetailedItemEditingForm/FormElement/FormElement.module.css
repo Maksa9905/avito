@@ -1,0 +1,19 @@
+
+.label {
+  font-size: var(--mantine-font-size-sm);
+  font-weight: var(--mantine-font-weight-regular);
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: var(--mantine-spacing-sm);
+
+  >span {
+    position: relative;
+    top: 2px;
+  }
+}
+
+.root {
+  --mantine-color-error: var(--mantine-color-orange-filled);
+}

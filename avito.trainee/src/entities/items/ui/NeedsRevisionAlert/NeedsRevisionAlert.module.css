@@ -1,0 +1,32 @@
+.container {
+  position: relative;
+  background-color: var(--mantine-color-orange-light);
+  color: var(--mantine-color-orange-text);
+  padding: var(--mantine-spacing-md) var(--mantine-spacing-lg);
+  padding-left: 50px;
+  border-radius: var(--mantine-radius-sm);
+  box-shadow: var(--mantine-shadow-sm);
+  min-height: 42px;
+}
+
+.icon {
+  position: absolute;
+  top: var(--mantine-spacing-md);
+  left: var(--mantine-spacing-lg);
+}
+
+.title {
+  font-size: var(--mantine-font-size-md);
+  color: var(--mantine-color-text);
+  margin-bottom: var(--mantine-spacing-xs);
+}
+
+.text {
+  font-size: var(--mantine-font-size-sm);
+  color: var(--mantine-color-text);
+}
+
+.listItem {
+  font-size: var(--mantine-font-size-sm);
+  color: var(--mantine-color-text);
+}

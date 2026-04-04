@@ -1,4 +1,28 @@
 {
+  "edit": {
+    "common": {
+      "category": {
+        "label": "Категория",
+        "placeholder": "Выберите категорию",
+        "required": "Выберите категорию"
+      },
+      "title": {
+        "label": "Название",
+        "placeholder": "Название объявления",
+        "required": "Укажите название"
+      },
+      "description": {
+        "label": "Описание",
+        "placeholder": "Текст объявления",
+        "required": "Добавьте описание"
+      },
+      "price": {
+        "label": "Цена",
+        "placeholder": "Цена в рублях",
+        "required": "Укажите цену"
+      }
+    }
+  },
   "listLoadError": {
     "title": "Не удалось загрузить объявления",
     "description": "Проверьте подключение к интернету и попробуйте обновить страницу."
@@ -20,6 +44,99 @@
     "electronics": "Электроника"
   },
   "needsRevision": "Требует доработок",
+  "needsRevisionAlert": {
+    "title": "Требуются доработки",
+    "fieldsNeeded": "У объявления не заполнены поля:"
+  },
+  "form": {
+    "edit": {
+      "detailedSectionTitle": "Характеристики",
+      "auto": {
+        "brand": {
+          "title": "Марка",
+          "required": "Марка должна быть заполнена"
+        },
+        "model": {
+          "title": "Модель",
+          "required": "Модель должна быть заполнена"
+        },
+        "yearOfManufacture": {
+          "title": "Год выпуска",
+          "required": "Укажите год выпуска"
+        },
+        "transmission": {
+          "title": "Коробка передач",
+          "required": "Выберите коробку передач",
+          "options": {
+            "automatic": "Автомат",
+            "manual": "Механика"
+          }
+        },
+        "mileage": {
+          "title": "Пробег",
+          "required": "Укажите пробег"
+        },
+        "enginePower": {
+          "title": "Мощность двигателя",
+          "required": "Укажите мощность двигателя"
+        }
+      },
+      "real_estate": {
+        "type": {
+          "title": "Тип объекта",
+          "required": "Выберите тип недвижимости",
+          "options": {
+            "flat": "Квартира",
+            "house": "Дом",
+            "room": "Комната"
+          }
+        },
+        "address": {
+          "title": "Адрес",
+          "required": "Адрес должен быть заполнен"
+        },
+        "area": {
+          "title": "Площадь",
+          "required": "Укажите площадь"
+        },
+        "floor": {
+          "title": "Этаж",
+          "required": "Укажите этаж"
+        }
+      },
+      "electronics": {
+        "type": {
+          "title": "Тип устройства",
+          "required": "Выберите тип устройства",
+          "options": {
+            "phone": "Телефон",
+            "laptop": "Ноутбук",
+            "misc": "Другое"
+          }
+        },
+        "brand": {
+          "title": "Бренд",
+          "required": "Бренд должен быть заполнен"
+        },
+        "model": {
+          "title": "Модель",
+          "required": "Модель должна быть заполнена"
+        },
+        "condition": {
+          "title": "Состояние",
+          "required": "Выберите состояние",
+          "options": {
+            "new": "Новое",
+            "used": "Б/у"
+          }
+        },
+        "color": {
+          "title": "Цвет",
+          "required": "Укажите цвет"
+        }
+      }
+    }
+  },
   "sorting": {
     "placeholder": "Сортировка",
     "title": {

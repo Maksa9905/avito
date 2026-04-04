@@ -1,0 +1,40 @@
+
+.wrapper {
+  width: 100%;
+  min-height: 100dvh;
+  padding: 32px;
+  padding-top: 12px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantine-spacing-lg);
+  max-width: 1318px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form {
+  max-width: 460px;
+}
+
+.header {
+  padding: var(--mantine-spacing-md) var(--mantine-spacing-sm);
+}
+
+.title {
+  font-size: 30px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  gap: var(--mantine-spacing-md);
+}

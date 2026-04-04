@@ -3,6 +3,8 @@ import { buttonExtends } from './button.extends'
 import { fontFamilyRoboto } from './fontFamilies'
 import { textInputExtends } from './textinput.extends'
 import { selectExtends } from './select.extends'
+import { numberInputExtends } from './numberInput.extends'
+import { textareaExtends } from './textarea.extends'
 
 const theme = createTheme({
   black: '#262626',
@@ -103,6 +105,8 @@ const theme = createTheme({
     Button: buttonExtends,
     TextInput: textInputExtends,
     Select: selectExtends,
+    NumberInput: numberInputExtends,
+    Textarea: textareaExtends,
   },
 })
 

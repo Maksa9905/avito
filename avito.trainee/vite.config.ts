@@ -27,6 +27,16 @@ export default defineConfig({
       { find: '@/test', replacement: path.join(src, 'test') },
     ],
   },
+  server: {
+    port: 3000,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
   test: {
     globals: true,
     environment: 'happy-dom',

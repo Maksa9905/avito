@@ -4,7 +4,7 @@ import {
   type EElectronicsType,
   EItemCategory,
   type ERealEstateType,
-} from '../model/types'
+} from '@/entities/items'
 
 export type AutoItemParamsDto = {
   brand?: string

@@ -1,8 +1,8 @@
-import CaretDownIcon from '@/shared/icons/CaretDownIcon'
-import { Select } from '@mantine/core'
+import { NumberInput } from '@mantine/core'
 
-export const selectExtends = Select.extend({
+export const numberInputExtends = NumberInput.extend({
   vars: () => ({
+    controls: {},
     wrapper: {
       '--input-height': '32px',
     },
@@ -16,7 +16,4 @@ export const selectExtends = Select.extend({
       lineHeight: '22px',
     },
   }),
-  defaultProps: {
-    rightSection: <CaretDownIcon />,
-  },
 })

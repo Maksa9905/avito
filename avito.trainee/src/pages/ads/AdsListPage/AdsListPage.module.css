@@ -1,5 +1,6 @@
 .wrapper {
-  padding: var(--mantine-spacing-md) var(--mantine-spacing-sm);
+  padding: 32px;
+  padding-top: 12px;
   background-color: var(--mantine-color-gray-light);
   height: 100dvh;
   width: 100%;
@@ -103,5 +104,6 @@
   .wrapper {
     height: unset;
     min-height: 100dvh;
+    padding: 12px;
   }
 }

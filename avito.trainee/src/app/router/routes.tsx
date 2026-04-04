@@ -2,7 +2,7 @@ import { QueryParamProvider } from 'use-query-params'
 import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6'
 import { Navigate, Outlet, createBrowserRouter } from 'react-router-dom'
 
-import { AdEditPage } from '@/pages/ads/AdEditPage'
+import AdEditPage from '@/pages/ads/AdEditPage'
 import AdsListPage from '@/pages/ads/AdsListPage'
 import { AdViewPage } from '@/pages/ads/AdViewPage'
 
@@ -17,7 +17,12 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="/ads" replace />,
+        element: (
+          <Navigate
+            to="/ads"
+            replace
+          />
+        ),
       },
       {
         path: 'ads',
