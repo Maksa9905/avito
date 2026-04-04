@@ -9,6 +9,8 @@ import { type IItem, NeedsRevisionChip } from '@/entities/items'
 import { type EItemViewType } from '../../model/types'
 
 import styles from './ItemListCard.module.css'
+import { useNavigate } from 'react-router-dom'
+import { useCallback } from 'react'
 
 type ItemListCardProps<TSkeleton extends boolean = false> = {
   item: TSkeleton extends true ? IItem | undefined : IItem
@@ -24,6 +26,12 @@ const ItemListCard = <TSkeleton extends boolean = false>({
 }: ItemListCardProps<TSkeleton>) => {
   const { t } = useTranslation('items')
 
+  const navigate = useNavigate()
+
+  const handleClick = useCallback(() => {
+    if (item) navigate(`/ads/${item.id}`)
+  }, [item, navigate])
+
   if (isLoading || !item) {
     return <Skeleton className={cn(styles.card, className)} />
   }
@@ -32,6 +40,8 @@ const ItemListCard = <TSkeleton extends boolean = false>({
     <Box
       className={cn(styles.card, className)}
       component="li"
+      tabIndex={0}
+      onClick={handleClick}
     >
       {item.imageURL ? (
         <Image

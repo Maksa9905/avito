@@ -8,6 +8,8 @@ import type { EItemViewType } from '../../model/types'
 import { type IItem, NeedsRevisionChip } from '@/entities/items'
 
 import styles from './ItemGridCard.module.css'
+import { useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 type ItemGridCardProps<TSkeleton extends boolean = false> = {
   item: TSkeleton extends true ? IItem | undefined : IItem
@@ -23,6 +25,12 @@ const ItemGridCard = <TSkeleton extends boolean = false>({
 }: ItemGridCardProps<TSkeleton>) => {
   const { t } = useTranslation('items')
 
+  const navigate = useNavigate()
+
+  const handleClick = useCallback(() => {
+    if (item) navigate(`/ads/${item.id}`)
+  }, [item, navigate])
+
   if (isLoading || !item) {
     return <Skeleton className={styles.card} />
   }
@@ -31,6 +39,8 @@ const ItemGridCard = <TSkeleton extends boolean = false>({
     <Box
       className={cn(styles.card, className)}
       component="li"
+      onClick={handleClick}
+      tabIndex={0}
     >
       {item.imageURL ? (
         <Image

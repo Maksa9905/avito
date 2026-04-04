@@ -11,6 +11,15 @@
   background-color: var(--mantine-color-body);
 }
 
+.card:hover {
+  cursor: pointer;
+  outline-color: var(--mantine-primary-color-filled)
+}
+
+.card:focus-visible {
+  outline: 1px solid var(--mantine-primary-color-filled);
+}
+
 .image {
   width: 100%;
   height: 150px;

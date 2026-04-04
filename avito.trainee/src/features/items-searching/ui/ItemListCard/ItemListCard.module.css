@@ -9,6 +9,15 @@
   background-color: var(--mantine-color-body);
 }
 
+.card:hover {
+  cursor: pointer;
+  outline-color: var(--mantine-primary-color-filled)
+}
+
+.card:focus-visible {
+  outline: 1px solid var(--mantine-primary-color-filled);
+}
+
 .info {
   display: flex;
   flex-direction: column;
