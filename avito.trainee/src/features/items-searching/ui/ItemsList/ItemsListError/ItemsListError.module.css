@@ -1,0 +1,23 @@
+.root {
+  width: 100%;
+  flex: 1 1 100%;
+  box-sizing: border-box;
+  padding: var(--mantine-spacing-xl) var(--mantine-spacing-md);
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  color: var(--mantine-color-red-6);
+}
+
+.notFoundIconWrap {
+  width: 100%;
+  max-width: 220px;
+}
+
+.notFoundIconWrap svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}

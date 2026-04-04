@@ -10,6 +10,7 @@ import { useGetItemsListQuery } from '../../api/api'
 import { Box } from '@mantine/core'
 import ItemsListItem from './ItemsListItem'
 import { useMemo } from 'react'
+import ItemsListError from './ItemsListError'
 
 type ItemsListProps = {
   className?: string
@@ -18,7 +19,7 @@ type ItemsListProps = {
 const ItemsList = ({ className }: ItemsListProps) => {
   const { query } = useItemsListQueryParams()
 
-  const { data, isLoading } = useGetItemsListQuery(
+  const { data, isLoading, isError, isSuccess } = useGetItemsListQuery(
     mapItemsListQueryParams(query),
   )
 
@@ -38,12 +39,15 @@ const ItemsList = ({ className }: ItemsListProps) => {
           />
         ))}
       {!isLoading &&
+        isSuccess &&
         items.map((item) => (
           <ItemsListItem
             key={item.id}
             item={item}
           />
         ))}
+      {isError && <ItemsListError type="error" />}
+      {isSuccess && !items.length && <ItemsListError type="notFound" />}
     </>
   )
 

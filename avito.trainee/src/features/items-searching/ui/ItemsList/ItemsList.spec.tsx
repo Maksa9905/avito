@@ -40,6 +40,7 @@ describe('ItemsList', () => {
     mockUseGetItemsListQuery.mockReturnValue({
       data: undefined,
       isLoading: true,
+      isError: false,
     } as ReturnType<typeof useGetItemsListQuery>)
 
     const { container } = renderWithAdsListProviders(<ItemsList />)
@@ -47,6 +48,28 @@ describe('ItemsList', () => {
     expect(container.querySelectorAll('.mantine-Skeleton-root')).toHaveLength(
       10,
     )
+    expect(screen.queryAllByRole('listitem')).toHaveLength(0)
+  })
+
+  it('при ошибке запроса показывает сообщение и не показывает скелетоны', () => {
+    mockUseGetItemsListQuery.mockReturnValue({
+      data: undefined,
+      isLoading: false,
+      isError: true,
+    } as ReturnType<typeof useGetItemsListQuery>)
+
+    const { container } = renderWithAdsListProviders(<ItemsList />)
+
+    expect(screen.getByRole('alert')).toBeInTheDocument()
+    expect(
+      screen.getByText('Не удалось загрузить объявления'),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        'Проверьте подключение к интернету и попробуйте обновить страницу.',
+      ),
+    ).toBeInTheDocument()
+    expect(container.querySelectorAll('.mantine-Skeleton-root')).toHaveLength(0)
     expect(screen.queryAllByRole('listitem')).toHaveLength(0)
   })
 
@@ -69,7 +92,7 @@ describe('ItemsList', () => {
     expect(screen.getAllByRole('listitem')).toHaveLength(2)
   })
 
-  it('при пустом списке не рендерит карточки', () => {
+  it('при пустом списке показывает состояние «ничего не найдено»', () => {
     mockUseGetItemsListQuery.mockReturnValue({
       data: { items: [], total: 0 },
       isLoading: false,
@@ -77,6 +100,13 @@ describe('ItemsList', () => {
 
     renderWithAdsListProviders(<ItemsList />)
 
+    expect(screen.getByRole('status')).toBeInTheDocument()
+    expect(screen.getByText('Объявлений не найдено')).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        'Попробуйте изменить фильтры или поисковый запрос — подходящие объявления могут появиться позже.',
+      ),
+    ).toBeInTheDocument()
     expect(screen.queryAllByRole('listitem')).toHaveLength(0)
     expect(screen.queryByRole('heading', { level: 2 })).not.toBeInTheDocument()
   })
