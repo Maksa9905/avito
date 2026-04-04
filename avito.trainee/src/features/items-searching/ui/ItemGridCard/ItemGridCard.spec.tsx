@@ -1,11 +1,22 @@
-import { describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
+import userEvent from '@testing-library/user-event'
+import { screen } from '@testing-library/react'
 import { EItemCategory, type IItem } from '@/entities/items'
 import { renderWithProviders } from '@/test/renderWithProviders'
-import { screen } from '@testing-library/react'
 
 import { EItemViewType } from '../../model/types'
 import ItemGridCard from './ItemGridCard'
+
+const navigateMock = vi.hoisted(() => vi.fn())
+
+vi.mock('react-router-dom', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('react-router-dom')>()
+  return {
+    ...actual,
+    useNavigate: () => navigateMock,
+  }
+})
 
 const baseItem: IItem = {
   id: 'item-1',
@@ -16,6 +27,10 @@ const baseItem: IItem = {
 }
 
 describe('ItemGridCard', () => {
+  beforeEach(() => {
+    navigateMock.mockReset()
+  })
+
   it('показывает заголовок, цену, категорию и картинку по URL', () => {
     const item: IItem = {
       ...baseItem,
@@ -39,6 +54,38 @@ describe('ItemGridCard', () => {
       'src',
       item.imageURL,
     )
+  })
+
+  it('по клику на карточку вызывает переход на страницу объявления', async () => {
+    const user = userEvent.setup()
+    const item: IItem = {
+      ...baseItem,
+      id: 'ad-42',
+      imageURL: 'https://example.com/photo.jpg',
+    }
+
+    renderWithProviders(
+      <ItemGridCard
+        type={EItemViewType.GRID}
+        item={item}
+      />,
+    )
+
+    await user.click(screen.getByRole('listitem'))
+
+    expect(navigateMock).toHaveBeenCalledTimes(1)
+    expect(navigateMock).toHaveBeenCalledWith('/ads/ad-42')
+  })
+
+  it('карточка с объявлением фокусируема (tabIndex 0)', () => {
+    renderWithProviders(
+      <ItemGridCard
+        type={EItemViewType.GRID}
+        item={baseItem}
+      />,
+    )
+
+    expect(screen.getByRole('listitem')).toHaveAttribute('tabIndex', '0')
   })
 
   it('показывает заглушку вместо изображения, если imageURL нет', () => {

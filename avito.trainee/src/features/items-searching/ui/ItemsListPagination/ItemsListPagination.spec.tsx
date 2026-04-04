@@ -32,17 +32,18 @@ describe('ItemsListPagination', () => {
     expect(screen.getByRole('button', { name: '3' })).toBeInTheDocument()
   })
 
-  it('при total=0 показывает одну страницу', () => {
+  it('при total=0 после загрузки пагинацию не показывает', () => {
     mockUseGetItemsListQuery.mockReturnValue({
       data: { items: [], total: 0 },
       isLoading: false,
       isPending: false,
     } as any)
 
-    renderWithAdsListProviders(<ItemsListPagination />)
+    const { container } = renderWithAdsListProviders(<ItemsListPagination />)
 
-    expect(screen.getByRole('button', { name: '1' })).toBeInTheDocument()
-    expect(screen.queryByRole('button', { name: '2' })).not.toBeInTheDocument()
+    expect(
+      container.querySelector('.mantine-Pagination-root'),
+    ).not.toBeInTheDocument()
   })
 
   it('отражает текущую страницу из query', () => {
