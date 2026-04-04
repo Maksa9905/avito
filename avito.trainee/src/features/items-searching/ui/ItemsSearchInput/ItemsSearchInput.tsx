@@ -1,7 +1,7 @@
 import SearchIcon from '@/shared/icons/SearchIcon'
 import { TextInput } from '@mantine/core'
 import { useDebouncedCallback } from '@mantine/hooks'
-import { useCallback, useEffect, useState, type ChangeEvent } from 'react'
+import { useCallback, useState, type ChangeEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useItemsListQueryParams } from '../../lib/useItemsListQueryParams'
 
@@ -17,10 +17,6 @@ const ItemsSearchInput = ({ className }: ItemsSearchInputProps) => {
   const { query, setQuery } = useItemsListQueryParams()
 
   const [value, setValue] = useState(() => query.q ?? '')
-
-  useEffect(() => {
-    setQuery({ q: value })
-  }, [setQuery, value])
 
   const debouncedSetSearch = useDebouncedCallback(
     (next: string) => {
