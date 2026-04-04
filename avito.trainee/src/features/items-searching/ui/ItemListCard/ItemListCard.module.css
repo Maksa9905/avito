@@ -1,0 +1,50 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  min-height: 132px;
+  max-width: 1200px;
+  width: 100%;
+  outline: 1px solid var(--mantine-color-disabled-border);
+  border-radius: var(--mantine-radius-md);
+  background-color: var(--mantine-color-body);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantine-spacing-xs);
+  flex: 1;
+  padding: 16px 24px;
+}
+
+.image {
+  width: 180px;
+  height: 132px;
+  object-fit: cover;
+  border-radius: var(--mantine-radius-md);
+  grid-row: span 4;
+}
+
+.category {
+  font-size: var(--mantine-font-size-sm);
+  color: var(--mantine-color-dimmed);
+  line-height: 1.2;
+}
+
+.title {
+  font-size: var(--mantine-font-size-md);
+  font-weight: var(--mantine-font-weight-regular);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.price {
+  font-family: var(--app-font-family-inter);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--mantine-font-size-md);
+  font-weight: var(--mantine-font-weight-bold);
+  color: var(--mantine-color-dimmed)
+}

@@ -1,5 +1,6 @@
 import { createTheme } from '@mantine/core'
 import { buttonExtends } from './button.extends'
+import { fontFamilyRoboto } from './fontFamilies'
 import { textInputExtends } from './textinput.extends'
 import { selectExtends } from './select.extends'
 
@@ -13,7 +14,10 @@ const theme = createTheme({
     dark: 8,
   },
   autoContrast: true,
-  fontFamily: 'Roboto, sans-serif',
+  fontFamily: fontFamilyRoboto,
+  headings: {
+    fontFamily: fontFamilyRoboto,
+  },
   fontSizes: {
     xs: '12px',
     sm: '14px',
@@ -35,7 +39,8 @@ const theme = createTheme({
     xl: '32px',
   },
   breakpoints: {
-    xs: '576px',
+    xxs: '480px',
+    xs: '640px',
     sm: '768px',
     md: '992px',
     lg: '1200px',
@@ -57,6 +62,18 @@ const theme = createTheme({
   },
   defaultRadius: '8px',
   colors: {
+    orange: [
+      '#fff8df',
+      '#ffeeca',
+      '#ffdd99',
+      '#ffca63',
+      '#ffbf45',
+      '#ffb018',
+      '#ffaa03',
+      '#e49500',
+      '#cb8400',
+      '#b07100',
+    ],
     blue: [
       '#e1f7ff',
       '#cbe9ff',

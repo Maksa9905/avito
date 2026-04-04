@@ -1,0 +1,34 @@
+.gridQueryHost {
+  container-name: items-container-grid;
+  container-type: inline-size;
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+}
+
+.container {
+  display: flex;
+  gap: var(--mantine-spacing-md);
+  max-height: fit-content;
+  padding: 1px;
+}
+
+.container.grid {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.container.list {
+  flex-direction: column;
+
+  container-name: items-container-list;
+  container-type: inline-size;
+}
+
+@container items-container-grid (max-width: 700px) {
+  .container.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "listPage": {
+    "title": "Мои объявления",
+    "calculatingCount": "Считаем число объявлений...",
+    "listingsCount_one": "{{count}} объявление",
+    "listingsCount_few": "{{count}} объявления",
+    "listingsCount_many": "{{count}} объявлений",
+    "listingsCount_other": "{{count}} объявлений"
+  },
+  "searchAd": "Найти объявление..."
+}

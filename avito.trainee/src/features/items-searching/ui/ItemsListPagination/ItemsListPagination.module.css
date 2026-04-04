@@ -1,0 +1,9 @@
+.control {
+  font-size: var(--mantine-font-size-sm);
+}
+
+.control[data-active="true"] {
+  background-color: var(--mantine-color-body);
+  color: var(--mantine-primary-color-filled);
+  font-weight: var(--mantine-font-weight-medium);
+}

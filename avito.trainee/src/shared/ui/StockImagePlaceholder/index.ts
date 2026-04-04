@@ -1,0 +1,1 @@
+export { StockImagePlaceholder } from './StockImagePlaceholder'

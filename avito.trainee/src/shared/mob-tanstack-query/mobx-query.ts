@@ -9,10 +9,6 @@ import {
 } from '@tanstack/react-query'
 import { action, makeObservable, observable, runInAction } from 'mobx'
 
-/**
- * Подписка на {@link QueryObserver}: результат запроса хранится в MobX-поле `result`
- * и обновляется при каждом уведомлении TanStack Query.
- */
 export class MobxQuery<
   TQueryFnData = unknown,
   TError = DefaultError,
@@ -28,7 +24,8 @@ export class MobxQuery<
     TQueryFnData,
     TQueryKey
   >
-  private unsubscribe: (() => void) | null
+  private unsubscribe: (() => void) | null = null
+  private readonly resultListeners = new Set<() => void>()
 
   constructor(
     client: QueryClient,
@@ -44,14 +41,36 @@ export class MobxQuery<
     this.result = this.observer.getCurrentResult()
     makeObservable(this, {
       result: observable.ref,
+      attach: action,
       setOptions: action,
       dispose: action,
     })
+    this.attach()
+  }
+
+  attach(): void {
+    if (this.unsubscribe) return
+    this.result = this.observer.getCurrentResult()
+    this.emitResultChange()
     this.unsubscribe = this.observer.subscribe((next) => {
       runInAction(() => {
         this.result = next
       })
+      this.emitResultChange()
     })
+  }
+
+  subscribeResult(onChange: () => void): () => void {
+    this.resultListeners.add(onChange)
+    return () => {
+      this.resultListeners.delete(onChange)
+    }
+  }
+
+  private emitResultChange(): void {
+    for (const cb of this.resultListeners) {
+      cb()
+    }
   }
 
   setOptions(
@@ -67,6 +86,7 @@ export class MobxQuery<
     runInAction(() => {
       this.result = this.observer.getCurrentResult()
     })
+    this.emitResultChange()
   }
 
   refetch(options?: RefetchOptions): Promise<QueryObserverResult<TData, TError>> {

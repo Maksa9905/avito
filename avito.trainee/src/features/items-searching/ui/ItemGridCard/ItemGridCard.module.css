@@ -1,0 +1,71 @@
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 290px;
+  outline: 1px solid var(--mantine-color-disabled-border);
+  border-radius: var(--mantine-radius-md);
+  position: relative;
+  background-color: var(--mantine-color-body);
+}
+
+.image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--mantine-radius-md) var(--mantine-radius-md) 0 0;
+}
+
+.category {
+  position: relative;
+  top: -10px;
+  left: 12px;
+  min-height: 22px;
+  padding: 0 var(--mantine-spacing-lg);
+  font-size: var(--mantine-font-size-sm);
+  outline: 1px solid var(--mantine-color-default-border);
+  background-color: var(--mantine-color-body);
+  border-radius: 6px;
+  width: fit-content;
+  line-height: 22px
+}
+
+.info {
+  padding: var(--mantine-spacing-lg);
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantine-spacing-xs);
+}
+
+.title {
+  font-size: var(--mantine-font-size-md);
+  font-weight: var(--mantine-font-weight-regular);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.price {
+  font-family: var(--app-font-family-inter);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--mantine-font-size-md);
+  font-weight: var(--mantine-font-weight-bold);
+  color: var(--mantine-color-dimmed)
+}
+
+.needsRevision {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
+
+@container items-container-grid (max-width: 700px) {
+  .card {
+    width: 100%;
+  }
+}

@@ -1,0 +1,10 @@
+.text {
+  font-size: var(--mantine-font-size-lg);
+  font-weight: var(--mantine-font-weight-regular);
+  color: var(--mantine-color-dimmed);
+}
+
+.skeleton {
+  width: 150px;
+  height: 24px;
+}

@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  background-color: var(--mantine-color-default-hover);
+  color: var(--mantine-color-dimmed);
+}
+
+.icon {
+  width: 40%;
+  max-width: 56px;
+  height: auto;
+}

@@ -1,0 +1,1 @@
+export const ITEMS_LIST_QUERY_LIMIT = 10
