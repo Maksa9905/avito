@@ -2,7 +2,11 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
 import { ApiController } from '@/shared/api'
 
-import type { ItemDetailDto, ItemUpdateBody, ItemUpdateSuccessResponse } from './types'
+import type {
+  ItemDetailDto,
+  ItemUpdateBody,
+  ItemUpdateSuccessResponse,
+} from './types'
 
 export const useGetItemByIdQuery = (itemId: number | string | undefined) => {
   return useQuery<ItemDetailDto>({
@@ -34,7 +38,9 @@ export const useUpdateItemMutation = () => {
         data: body,
       }),
     onSuccess: (_, { itemId }) => {
-      void queryClient.invalidateQueries({ queryKey: ['items', 'detail', itemId] })
+      void queryClient.invalidateQueries({
+        queryKey: ['items', 'detail', itemId],
+      })
       void queryClient.invalidateQueries({ queryKey: ['items', 'list'] })
     },
   })
