@@ -12,7 +12,7 @@ export const useTotalItems = () => {
   )
 
   useEffect(() => {
-    if (data?.total) {
+    if (data?.total !== undefined) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setTotalCache(data.total)
     }

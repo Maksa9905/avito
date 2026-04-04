@@ -102,5 +102,6 @@
 
   .wrapper {
     height: unset;
+    min-height: 100dvh;
   }
 }

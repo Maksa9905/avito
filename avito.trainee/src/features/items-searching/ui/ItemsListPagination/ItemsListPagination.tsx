@@ -11,7 +11,7 @@ type ItemsListPaginationProps = {
 }
 
 const ItemsListPagination = ({ className }: ItemsListPaginationProps) => {
-  const { total } = useTotalItems()
+  const { total, isLoading } = useTotalItems()
 
   const { setQuery, query } = useItemsListQueryParams()
 
@@ -21,6 +21,8 @@ const ItemsListPagination = ({ className }: ItemsListPaginationProps) => {
     },
     [setQuery],
   )
+
+  if (!isLoading && !total) return null
 
   return (
     <Pagination
