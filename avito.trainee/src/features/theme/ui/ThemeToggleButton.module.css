@@ -1,0 +1,33 @@
+.tab {
+  position: fixed;
+  left: 0;
+  bottom: 24px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 52px;
+  padding: 0 6px 0 4px;
+  margin: 0;
+  border: 1px solid var(--mantine-color-default-border);
+  border-left: none;
+  border-radius: 0 var(--mantine-radius-md) var(--mantine-radius-md) 0;
+  background-color: var(--mantine-color-body);
+  color: var(--mantine-color-dimmed);
+  box-shadow: var(--mantine-shadow-sm);
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.tab:hover {
+  background-color: var(--mantine-color-default-hover);
+  color: var(--mantine-color-text);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--mantine-primary-color-filled);
+  outline-offset: 2px;
+}
