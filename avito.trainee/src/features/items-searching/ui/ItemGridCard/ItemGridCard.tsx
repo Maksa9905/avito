@@ -34,7 +34,7 @@ const ItemGridCard = <TSkeleton extends boolean = false>({
   }, [item, navigate])
 
   if (isLoading || !item) {
-    return <Skeleton className={styles.card} />
+    return <Skeleton className={cn(styles.card, styles.skeleton)} />
   }
 
   return (

@@ -35,7 +35,7 @@ const ItemListCard = <TSkeleton extends boolean = false>({
   }, [item, navigate])
 
   if (isLoading || !item) {
-    return <Skeleton className={cn(styles.card, className)} />
+    return <Skeleton className={cn(styles.card, styles.skeleton, className)} />
   }
 
   return (

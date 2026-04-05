@@ -14,6 +14,11 @@
   outline-color: var(--mantine-primary-color-filled)
 }
 
+.skeleton:hover {
+  cursor: default;
+  outline-color: var(--mantine-color-disabled-border);
+}
+
 .card:focus-visible {
   outline: 1px solid var(--mantine-primary-color-filled);
 }
