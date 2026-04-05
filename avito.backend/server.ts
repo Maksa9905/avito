@@ -109,6 +109,7 @@ fastify.get<ItemsGetRequest>('/items', request => {
         category: item.category,
         title: item.title,
         price: item.price,
+        images: item.images ?? [],
         needsRevision: doesItemNeedRevision(item),
       })),
     total: filteredItems.length,
@@ -152,7 +153,6 @@ fastify.put<ItemUpdateRequest>('/items/:id', (request, reply) => {
       updatedAt: new Date().toISOString(),
       ...parsedData,
     };
-
     return { success: true };
   } catch (error) {
     if (error instanceof ZodError) {

@@ -24,5 +24,6 @@ export function mapItemsListDtoToItem(dto: ItemsListItemDto): IItem {
     title: dto.title,
     price: dto.price ?? 0,
     needsRevision: dto.needsRevision,
+    imageURL: dto.images?.[0],
   }
 }

@@ -1,0 +1,42 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 120px;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+
+}
+
+.main {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  object-fit: contain;
+}
+
+.thumbsContainer {
+  height: 100px;
+  width: 100%;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.thumbs {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.thumb {
+  height: 100px;
+  max-width: 150px;
+  object-fit: cover;
+}
+
+

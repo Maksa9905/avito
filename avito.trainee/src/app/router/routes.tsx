@@ -4,7 +4,7 @@ import { Navigate, Outlet, createBrowserRouter } from 'react-router-dom'
 
 import AdEditPage from '@/pages/ads/AdEditPage'
 import AdsListPage from '@/pages/ads/AdsListPage'
-import { AdViewPage } from '@/pages/ads/AdViewPage'
+import AdViewPage from '@/pages/ads/AdViewPage'
 
 export const router = createBrowserRouter([
   {

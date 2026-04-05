@@ -38,6 +38,7 @@ export type BaseItemDetailDto = {
   createdAt: string
   updatedAt: string
   needsRevision: boolean
+  images?: string[]
 }
 
 export type AutoItemDetailDto = BaseItemDetailDto & {

@@ -3,17 +3,25 @@ import { useTranslation } from 'react-i18next'
 
 import AlertCircleIcon from '@/shared/icons/AlertCircleIcon'
 
+import { cn } from '@/shared/utils/cn'
+
 import styles from './NeedsRevisionAlert.module.css'
 
 type NeedsRevisionAlertProps = {
+  className?: string
   fieldsNeeded: string[]
 }
 
-const NeedsRevisionAlert = ({ fieldsNeeded }: NeedsRevisionAlertProps) => {
+const NeedsRevisionAlert = ({
+  className,
+  fieldsNeeded,
+}: NeedsRevisionAlertProps) => {
   const { t } = useTranslation('items')
 
+  if (!fieldsNeeded.length) return null
+
   return (
-    <Box className={styles.container}>
+    <Box className={cn(styles.container, className)}>
       <AlertCircleIcon className={styles.icon} />
       <Title
         order={2}
@@ -26,7 +34,12 @@ const NeedsRevisionAlert = ({ fieldsNeeded }: NeedsRevisionAlertProps) => {
       </Text>
       <List>
         {fieldsNeeded.map((field) => (
-          <ListItem className={styles.listItem} key={field}>{field}</ListItem>
+          <ListItem
+            className={styles.listItem}
+            key={field}
+          >
+            {field}
+          </ListItem>
         ))}
       </List>
     </Box>

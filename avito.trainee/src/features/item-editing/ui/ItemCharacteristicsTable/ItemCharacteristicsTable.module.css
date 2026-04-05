@@ -1,0 +1,16 @@
+.row {
+  border-bottom: none;
+}
+
+.cell {
+  padding: 2px;
+  font-size: var(--mantine-font-size-md);
+}
+
+.characteristic {
+  min-width: 148px;
+  font-weight: var(--mantine-font-weight-medium);
+  color: var(--mantine-color-dimmed);
+  padding-right: 16px;
+  white-space: nowrap;
+}

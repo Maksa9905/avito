@@ -5,6 +5,7 @@ export type Item = {
   price: number | null;
   createdAt: string;
   updatedAt: string;
+  images?: string[];
 } & (
   | {
       category: 'auto';

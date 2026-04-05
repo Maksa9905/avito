@@ -17,5 +17,9 @@
     "listingsCount_many": "{{count}} объявлений",
     "listingsCount_other": "{{count}} объявлений"
   },
-  "searchAd": "Найти объявление..."
+  "searchAd": "Найти объявление...",
+  "viewPage": {
+    "publishedAt": "Опубликовано: {{date}}",
+    "editedAt": "Отредактировано: {{date}}"
+  }
 }

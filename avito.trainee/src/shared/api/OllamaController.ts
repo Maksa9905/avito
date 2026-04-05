@@ -1,7 +1,7 @@
 import { Ollama } from 'ollama'
 
 export const ollama = new Ollama({
-  host: 'http://192.168.0.104:11434',
+  host: 'http://192.168.0.100:11434',
 })
 
 export enum ERole {

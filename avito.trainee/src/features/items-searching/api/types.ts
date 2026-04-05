@@ -22,4 +22,5 @@ export type ItemsListItemDto = {
   title: string
   price: number | null
   needsRevision: boolean
+  images?: string[]
 }
