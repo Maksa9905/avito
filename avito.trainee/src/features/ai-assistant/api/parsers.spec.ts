@@ -30,9 +30,9 @@ describe('extractModelJsonText', () => {
 
 describe('parseGenerateDescriptionResponse', () => {
   it('парсит валидный JSON с description', () => {
-    expect(parseGenerateDescriptionResponse('{"description":"Новый текст"}')).toEqual(
-      { description: 'Новый текст' },
-    )
+    expect(
+      parseGenerateDescriptionResponse('{"description":"Новый текст"}'),
+    ).toEqual({ description: 'Новый текст' })
   })
 
   it('понимает JSON внутри markdown-ограждения', () => {
@@ -61,8 +61,7 @@ describe('parseGenerateDescriptionResponse', () => {
 
 describe('parseGenerateRecommendedPriceResponse', () => {
   it('парсит валидный ответ', () => {
-    const raw =
-      '{"marketOverview":"рынок стабилен","recommendedPrice":125000}'
+    const raw = '{"marketOverview":"рынок стабилен","recommendedPrice":125000}'
     expect(parseGenerateRecommendedPriceResponse(raw)).toEqual({
       marketOverview: 'рынок стабилен',
       recommendedPrice: 125000,

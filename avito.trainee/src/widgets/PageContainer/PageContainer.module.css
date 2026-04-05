@@ -1,6 +1,6 @@
 .wrapper {
   padding: 32px;
-  height: 100dvh;
+  min-height: 100dvh;
   width: 100%;
 }
 

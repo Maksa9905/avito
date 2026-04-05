@@ -1,7 +1,7 @@
 export { ApiController, ApiRequestError } from './ApiController'
 export {
   OllamaController,
-  type ERole,
+  ERole,
   SystemPrompt,
   UserJsonPrompt,
 } from './OllamaController'

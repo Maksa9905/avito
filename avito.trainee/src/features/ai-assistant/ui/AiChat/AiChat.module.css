@@ -1,0 +1,81 @@
+.drawerInner {
+  align-items: stretch;
+  height: 100%;
+}
+
+.drawerContent {
+  display: flex !important;
+  flex-direction: column;
+  min-height: 0;
+  max-height: calc(100dvh - var(--drawer-offset, 0rem) * 2);
+  overflow: hidden !important;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chatRoot {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  gap: var(--mantine-spacing-sm);
+}
+
+.messagesContainer {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.inputFooter {
+  flex-shrink: 0;
+}
+
+.messages {
+  gap: var(--mantine-spacing-sm);
+}
+
+.message {
+  padding: var(--mantine-spacing-sm);
+  border-radius: var(--mantine-radius-md);
+  background-color: var(--mantine-color-body);
+}
+
+.content {
+  font-size: var(--mantine-font-size-sm);
+  line-height: var(--mantine-line-height-sm);
+  white-space: pre-wrap;
+}
+
+.message.user {
+  background-color: var(--mantine-color-blue-light);
+  align-self: flex-end;
+}
+
+.input {
+  border: 4px solid;
+  border-color: var(--mantine-color-body);
+  border-radius: var(--mantine-radius-md);
+  padding: var(--mantine-spacing-sm);
+  font-size: var(--mantine-font-size-sm);
+  line-height: var(--mantine-line-height-sm);
+  white-space: pre-wrap;
+  resize: none;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--mantine-color-body) transparent;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: var(--mantine-color-dimmed);
+}

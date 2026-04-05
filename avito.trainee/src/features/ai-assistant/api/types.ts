@@ -16,3 +16,13 @@ export type TGenerateRecommendedPriceResponse = {
 export type TGenerateDescriptionResponse = {
   description: string
 }
+
+export type TSendAiChatMessageParams = {
+  chatId: string
+  message: string
+  params: Record<string, unknown>
+}
+
+export type TSendAiChatMessageResponse = {
+  reply: string
+}

@@ -59,6 +59,7 @@ const CommonItemEditingForm = ({
           }}
         />
       </Box>
+      <Divider />
       <Group
         align="flex-end"
         gap="xl"
@@ -80,7 +81,6 @@ const CommonItemEditingForm = ({
         </Box>
         {priceRightSection}
       </Group>
-      <Divider />
     </Stack>
   )
 }

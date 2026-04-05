@@ -25,8 +25,10 @@ import { useCallback, useMemo } from 'react'
 import {
   ImproveDescriptionAiButton,
   RecommendedPriceAiButton,
+  AiFloatingButton,
 } from '@/features/ai-assistant'
 import PageContainer from '@/widgets/PageContainer'
+import { AiChatProvider } from '@/features/ai-assistant/ui/AiChat'
 
 export function AdEditPage() {
   const { t } = useTranslation('items')
@@ -145,52 +147,55 @@ export function AdEditPage() {
   )
 
   return (
-    <PageContainer
-      classNames={{ container: styles.container, wrapper: styles.wrapper }}
-    >
-      <ItemEditDraftRestoreDialog {...restoreDraftDialog} />
-      <Box
-        component="header"
-        className={styles.header}
+    <AiChatProvider onGetValues={handleGetValues}>
+      <PageContainer
+        classNames={{ container: styles.container, wrapper: styles.wrapper }}
       >
-        <Title
-          className={styles.title}
-          order={1}
+        <ItemEditDraftRestoreDialog {...restoreDraftDialog} />
+        <Box
+          component="header"
+          className={styles.header}
         >
-          {t('pages.itemEdit.title')}
-        </Title>
-      </Box>
-      <FormProvider value={formContextValue}>
-        <Stack className={styles.forms}>
-          <CommonItemEditingForm
-            isLoading={isLoading}
-            priceRightSection={
-              <RecommendedPriceAiButton
-                onApply={handleApplyAiPrice}
+          <Title
+            className={styles.title}
+            order={1}
+          >
+            {t('pages.itemEdit.title')}
+          </Title>
+        </Box>
+        <FormProvider value={formContextValue}>
+          <Stack className={styles.forms}>
+            <CommonItemEditingForm
+              isLoading={isLoading}
+              priceRightSection={
+                <RecommendedPriceAiButton
+                  onApply={handleApplyAiPrice}
+                  onGetValues={handleGetValues}
+                />
+              }
+            />
+            <Divider className={styles.divider} />
+            <DetailedEditingForm
+              className={styles.form}
+              isLoading={isLoading}
+            />
+            <Divider className={styles.divider} />
+            <Stack className={styles.descriptionContainer}>
+              <DescriptionTextField isLoading={isLoading} />
+              <ImproveDescriptionAiButton
+                className={styles.aiButton}
+                onApply={handleApplyAiDescription}
                 onGetValues={handleGetValues}
               />
-            }
-          />
-          <Divider className={styles.divider} />
-          <DetailedEditingForm
-            className={styles.form}
-            isLoading={isLoading}
-          />
-          <Divider className={styles.divider} />
-          <Stack className={styles.descriptionContainer}>
-            <DescriptionTextField isLoading={isLoading} />
-            <ImproveDescriptionAiButton
-              className={styles.aiButton}
-              onApply={handleApplyAiDescription}
-              onGetValues={handleGetValues}
-            />
+            </Stack>
           </Stack>
-        </Stack>
-        <FormActions
-          onCancel={handleCancel}
-          onSave={handleSave}
-        />
-      </FormProvider>
-    </PageContainer>
+          <FormActions
+            onCancel={handleCancel}
+            onSave={handleSave}
+          />
+        </FormProvider>
+        <AiFloatingButton />
+      </PageContainer>
+    </AiChatProvider>
   )
 }
