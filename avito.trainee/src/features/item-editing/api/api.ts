@@ -24,6 +24,7 @@ export const useGetItemByIdQuery = (itemId: number | string | undefined) => {
 export const useUpdateItemMutation = () => {
   const queryClient = useQueryClient()
 
+
   return useMutation({
     mutationFn: ({
       itemId,

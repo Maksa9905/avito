@@ -45,6 +45,7 @@ const SelectFormElement = ({
       {...inputProps}
       placeholder={title}
       classNames={{
+        root: styles.root,
         label: styles.label,
       }}
       data={data}

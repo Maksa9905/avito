@@ -46,41 +46,41 @@ const CommonItemEditingForm = ({
         />
       </Box>
       <Divider />
+      <Box className={styles.widthLimiter}>
+        <TextInput
+          key={common.key('title')}
+          {...common.getInputProps('title')}
+          placeholder={t('edit.common.title.placeholder')}
+          withAsterisk
+          label={t('edit.common.title.label')}
+          loading={isLoading}
+          classNames={{
+            label: styles.label,
+          }}
+        />
+      </Box>
       <Group
         align="flex-end"
         gap="xl"
       >
         <Box className={styles.widthLimiter}>
-          <TextInput
-            key={common.key('title')}
-            {...common.getInputProps('title')}
-            placeholder={t('edit.common.title.placeholder')}
+          <NumberInput
+            key={common.key('price')}
+            {...common.getInputProps('price')}
+            allowNegative={false}
+            hideControls
             withAsterisk
-            label={t('edit.common.title.label')}
+            label={t('edit.common.price.label')}
             loading={isLoading}
             classNames={{
               label: styles.label,
             }}
+            placeholder={t('edit.common.price.placeholder')}
           />
         </Box>
         {priceRightSection}
       </Group>
       <Divider />
-      <Box className={styles.widthLimiter}>
-        <NumberInput
-          key={common.key('price')}
-          {...common.getInputProps('price')}
-          allowNegative={false}
-          hideControls
-          withAsterisk
-          label={t('edit.common.price.label')}
-          loading={isLoading}
-          classNames={{
-            label: styles.label,
-          }}
-          placeholder={t('edit.common.price.placeholder')}
-        />
-      </Box>
     </Stack>
   )
 }

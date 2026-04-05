@@ -76,12 +76,12 @@ export function buildItemUpdateBody(
         description,
         price,
         params: {
-          brand: d.brand,
-          model: d.model,
+          brand: d.brand || undefined,
+          model: d.model || undefined,
           yearOfManufacture: d.yearOfManufacture
             ? Number(d.yearOfManufacture)
             : undefined,
-          transmission: d.transmission ?? undefined,
+          transmission: d.transmission || undefined,
           mileage: d.mileage ? Number(d.mileage) : undefined,
           enginePower: d.enginePower ? Number(d.enginePower) : undefined,
         },
@@ -95,8 +95,8 @@ export function buildItemUpdateBody(
         description,
         price,
         params: {
-          type: d.type ?? undefined,
-          address: d.address,
+          type: d.type || undefined,
+          address: d.address || undefined,
           area: d.area ? Number(d.area) : undefined,
           floor: d.floor ? Number(d.floor) : undefined,
         },
@@ -110,11 +110,11 @@ export function buildItemUpdateBody(
         description,
         price,
         params: {
-          type: d.type ?? undefined,
-          brand: d.brand,
-          model: d.model,
-          condition: d.condition ?? undefined,
-          color: d.color,
+          type: d.type || undefined,
+          brand: d.brand || undefined,
+          model: d.model || undefined,
+          condition: d.condition || undefined,
+          color: d.color || undefined,
         },
       }
     }
