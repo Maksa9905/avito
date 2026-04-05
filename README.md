@@ -26,6 +26,8 @@ docker compose up --build
 docker exec ai-asistent ollama pull deepseek-r1:8b
 ```
 
+Рекомендую поднять ресурсы, потребляемые Docker Engine - для корректной работы модели требуется выделить >5.1GB ОЗУ.
+
 ## Локальная разработка без Docker
 
 1. **Бэкенд** (`avito.backend`): `npm ci` → `npm start` (порт **8080**).
