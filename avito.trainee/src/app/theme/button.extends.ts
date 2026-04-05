@@ -19,6 +19,7 @@ const getButtonStylesBySize = (theme: MantineTheme, size?: ButtonSize) => {
         root: {
           height: '22px',
           padding: '0px 7px',
+          borderRadius: '4px',
         },
         label: {
           fontSize: '14px',

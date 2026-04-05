@@ -22,6 +22,10 @@ import {
 
 import styles from './AdEditPage.module.css'
 import { useCallback, useMemo } from 'react'
+import {
+  ImproveDescriptionAiButton,
+  RecommendedPriceAiButton,
+} from '@/features/ai-assistant'
 
 export function AdEditPage() {
   const { t } = useTranslation('ads')
@@ -107,6 +111,38 @@ export function AdEditPage() {
     return { common: commonForm, ...detailedForms }
   }, [commonForm, detailedForms])
 
+  const handleGetValues = useCallback(() => {
+    let result: Record<string, unknown> = {}
+
+    const commonFormValues = commonForm.getValues()
+
+    result = { ...commonFormValues }
+
+    const category = commonFormValues.category
+
+    const detailedFormValues = category
+      ? detailedForms[category].getValues()
+      : {}
+
+    result = { ...result, ...detailedFormValues }
+
+    return result
+  }, [commonForm, detailedForms])
+
+  const handleApplyAiDescription = useCallback(
+    (description: string) => {
+      commonForm.setFieldValue('description', description)
+    },
+    [commonForm],
+  )
+
+  const handleApplyAiPrice = useCallback(
+    (price: string) => {
+      commonForm.setFieldValue('price', Number(price))
+    },
+    [commonForm],
+  )
+
   return (
     <Stack className={styles.wrapper}>
       <ItemEditDraftRestoreDialog {...restoreDraftDialog} />
@@ -124,14 +160,29 @@ export function AdEditPage() {
         </Box>
         <FormProvider value={formContextValue}>
           <Stack className={styles.forms}>
-            <CommonItemEditingForm isLoading={isLoading} />
+            <CommonItemEditingForm
+              isLoading={isLoading}
+              priceRightSection={
+                <RecommendedPriceAiButton
+                  onApply={handleApplyAiPrice}
+                  onGetValues={handleGetValues}
+                />
+              }
+            />
             <Divider className={styles.divider} />
             <DetailedEditingForm
               className={styles.form}
               isLoading={isLoading}
             />
             <Divider className={styles.divider} />
-            <DescriptionTextField isLoading={isLoading} />
+            <Stack className={styles.descriptionContainer}>
+              <DescriptionTextField isLoading={isLoading} />
+              <ImproveDescriptionAiButton
+                className={styles.aiButton}
+                onApply={handleApplyAiDescription}
+                onGetValues={handleGetValues}
+              />
+            </Stack>
           </Stack>
           <FormActions
             onCancel={handleCancel}

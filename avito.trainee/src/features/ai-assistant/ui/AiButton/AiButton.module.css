@@ -1,0 +1,5 @@
+.icon {
+  --loader-size: 14px;
+  --loader-color: var(--mantine-color-orange-light-color);
+  margin-right: var(--mantine-spacing-sm)
+}

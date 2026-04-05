@@ -57,12 +57,15 @@ export const useDetailedItemEditingForms = ({
     switch (category) {
       case EItemCategory.AUTO:
         autoForm.setValues(initialValues as AutoFormValues)
+        autoForm.resetDirty()
         break
       case EItemCategory.REAL_ESTATE:
         realEstateForm.setValues(initialValues as RealEstateFormValues)
+        realEstateForm.resetDirty()
         break
       case EItemCategory.ELECTRONICS:
         electronicsForm.setValues(initialValues as ElecrtonicFormValues)
+        electronicsForm.resetDirty()
         break
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

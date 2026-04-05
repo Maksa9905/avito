@@ -37,6 +37,7 @@ export const useCommonItemEditingForm = ({
   useEffect(() => {
     if (initialValues) {
       commonForm.setValues(initialValues)
+      commonForm.resetDirty()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialValues])

@@ -147,6 +147,21 @@
       }
     }
   },
+  "aiAssistant": {
+    "requestInProgress": "Выполняется запрос",
+    "repeatRequest": "Повторить запрос",
+    "prompts": {
+      "improve_description": "Улучшить описание",
+      "recommended_price": "Узнать рыночную цену"
+    },
+    "confirmMenu": {
+      "responseTitle": "Ответ от AI:",
+      "apply": "Применить",
+      "close": "Закрыть",
+      "errorTitle": "Произошла ошибка при запросе к AI",
+      "errorDescription": "Попробуйте повторить запрос или закройте уведомление"
+    }
+  },
   "sorting": {
     "placeholder": "Сортировка",
     "title": {

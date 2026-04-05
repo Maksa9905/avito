@@ -1,6 +1,7 @@
 import {
   Box,
   Divider,
+  Group,
   NumberInput,
   Select,
   Stack,
@@ -16,9 +17,13 @@ import { cn } from '@/shared/utils/cn'
 
 type CommonItemEditingFormProps = {
   isLoading?: boolean
+  priceRightSection?: React.ReactNode
 }
 
-const CommonItemEditingForm = ({ isLoading }: CommonItemEditingFormProps) => {
+const CommonItemEditingForm = ({
+  isLoading,
+  priceRightSection,
+}: CommonItemEditingFormProps) => {
   const { t } = useTranslation('items')
   const { common } = useFormContext()
 
@@ -41,19 +46,25 @@ const CommonItemEditingForm = ({ isLoading }: CommonItemEditingFormProps) => {
         />
       </Box>
       <Divider />
-      <Box className={styles.widthLimiter}>
-        <TextInput
-          key={common.key('title')}
-          {...common.getInputProps('title')}
-          placeholder={t('edit.common.title.placeholder')}
-          withAsterisk
-          label={t('edit.common.title.label')}
-          loading={isLoading}
-          classNames={{
-            label: styles.label,
-          }}
-        />
-      </Box>
+      <Group
+        align="flex-end"
+        gap="xl"
+      >
+        <Box className={styles.widthLimiter}>
+          <TextInput
+            key={common.key('title')}
+            {...common.getInputProps('title')}
+            placeholder={t('edit.common.title.placeholder')}
+            withAsterisk
+            label={t('edit.common.title.label')}
+            loading={isLoading}
+            classNames={{
+              label: styles.label,
+            }}
+          />
+        </Box>
+        {priceRightSection}
+      </Group>
       <Divider />
       <Box className={styles.widthLimiter}>
         <NumberInput

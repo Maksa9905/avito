@@ -38,3 +38,13 @@
   flex-direction: row;
   gap: var(--mantine-spacing-md);
 }
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.aiButton {
+  width: fit-content;
+}
