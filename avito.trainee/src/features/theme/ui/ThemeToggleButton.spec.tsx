@@ -7,8 +7,10 @@ import {
   MantineProvider,
   localStorageColorSchemeManager,
 } from '@mantine/core'
+import { I18nextProvider } from 'react-i18next'
 
 import theme from '@/app/theme/theme'
+import { i18n } from '@/shared/i18n'
 
 import { COLOR_SCHEME_STORAGE_KEY } from '../constants'
 import ThemeToggleButton from './ThemeToggleButton'
@@ -19,13 +21,15 @@ const colorSchemeManager = localStorageColorSchemeManager({
 
 function TestWrapper({ children }: { children: ReactNode }) {
   return (
-    <MantineProvider
-      theme={theme}
-      defaultColorScheme="light"
-      colorSchemeManager={colorSchemeManager}
-    >
-      {children}
-    </MantineProvider>
+    <I18nextProvider i18n={i18n}>
+      <MantineProvider
+        theme={theme}
+        defaultColorScheme="light"
+        colorSchemeManager={colorSchemeManager}
+      >
+        {children}
+      </MantineProvider>
+    </I18nextProvider>
   )
 }
 
