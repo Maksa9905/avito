@@ -16,6 +16,8 @@ import {
   useGetItemByIdQuery,
   mapItemDetailDtoToCommonFormValues,
   mapItemDetailDtoToDetailedFormValues,
+  useNotificationAlert,
+  ENotificationAlertType,
 } from '@/features/item-editing'
 
 import styles from './AdEditPage.module.css'
@@ -26,6 +28,8 @@ export function AdEditPage() {
   const { id: itemId } = useParams<{ id: string }>()
 
   const { data: item, isLoading } = useGetItemByIdQuery(itemId)
+
+  const showAlert = useNotificationAlert()
 
   const commonFormValues = useMemo(() => {
     return item ? mapItemDetailDtoToCommonFormValues(item) : undefined
@@ -55,30 +59,45 @@ export function AdEditPage() {
   const { mutateAsync: updateItem } = useUpdateItemMutation()
 
   const handleSave = useCallback(async () => {
-    if (!itemId) return
+    try {
+      if (!itemId) throw new Error('Item ID is required')
 
-    const commonValues = commonForm.getValues()
+      const commonValues = commonForm.getValues()
 
-    const category = commonValues.category
+      const category = commonValues.category
 
-    if (!category) return
+      if (!category) throw new Error('Category is required')
 
-    const selectedForm = detailedForms[category]
+      const selectedForm = detailedForms[category]
 
-    const updateBody = buildItemUpdateBody(
-      commonValues,
-      selectedForm.getValues(),
-    )
+      const updateBody = buildItemUpdateBody(
+        commonValues,
+        selectedForm.getValues(),
+      )
 
-    if (!updateBody) return
+      if (!updateBody) throw new Error('Update body is required')
 
-    await updateItem({
-      itemId,
-      body: updateBody,
-    })
+      await updateItem({
+        itemId,
+        body: updateBody,
+      })
 
-    clearDraft()
-  }, [clearDraft, commonForm, detailedForms, itemId, updateItem])
+      showAlert(ENotificationAlertType.SUCCESS)
+
+      clearDraft()
+      navigate(`/ads/${itemId}`)
+    } catch {
+      showAlert(ENotificationAlertType.ERROR)
+    }
+  }, [
+    clearDraft,
+    commonForm,
+    detailedForms,
+    itemId,
+    navigate,
+    showAlert,
+    updateItem,
+  ])
 
   const handleCancel = useCallback(() => {
     navigate(`/ads/${itemId}`)

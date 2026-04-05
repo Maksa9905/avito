@@ -1,0 +1,46 @@
+.root {
+  padding: var(--mantine-spacing-md) var(--mantine-spacing-lg);
+  border-radius: 2px;
+  width: unset;
+}
+
+.root.success {
+  background-color: var(--mantine-color-green-light);
+  border: 1px solid var(--mantine-color-green-light-hover);
+
+  .title {
+    margin-bottom: 0;
+  }
+}
+
+.root.error {
+  background-color: var(--mantine-color-red-light);
+  border: 1px solid var(--mantine-color-red-light-hover);
+  align-items: start;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  margin-right: var(--mantine-spacing-sm);
+}
+
+.icon.success {
+  color: var(--mantine-color-green-text);
+}
+
+.icon.error {
+  color: var(--mantine-color-red-text);
+}
+
+.title {
+  font-size: var(--mantine-font-size-sm);
+  color: var(--mantine-color-text);
+  font-weight: var(--mantine-font-weight-regular);
+  margin-bottom: 6px;
+}
+
+.description {
+  color: var(--mantine-color-text);
+}

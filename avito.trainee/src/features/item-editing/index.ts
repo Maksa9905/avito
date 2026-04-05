@@ -4,6 +4,7 @@ export { DescriptionTextField } from './ui/ItemEditingForm/CommonItemEditingForm
 export { default as FormActions } from './ui/ItemEditingForm/FormActions'
 export { FormProvider } from './ui/ItemEditingForm/FormProvider'
 export { ItemEditDraftRestoreDialog } from './ui/ItemEditDraftRestoreDialog'
+export { useNotificationAlert, ENotificationAlertType } from './ui/ItemEditingAlert'
 
 export { useCommonItemEditingForm } from './model/useCommonItemEditingForm'
 export { useDetailedItemEditingForms } from './model/useDetailedItemEditingForms'

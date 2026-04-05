@@ -6,12 +6,15 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import './theme/fonts.css'
 import '@mantine/core/styles.css'
+import '@mantine/notifications/styles.css'
 
 import {
   ColorSchemeScript,
   MantineProvider,
   localStorageColorSchemeManager,
 } from '@mantine/core'
+import { Notifications } from '@mantine/notifications'
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { RouterProvider } from 'react-router-dom'
 import { I18nextProvider } from 'react-i18next'
@@ -51,6 +54,7 @@ function App() {
             defaultColorScheme="auto"
             colorSchemeManager={colorSchemeManager}
           >
+            <Notifications w="unset" />
             <RouterProvider router={router} />
             <ThemeToggleButton />
           </MantineProvider>
