@@ -12,6 +12,8 @@ import styles from './ItemListCard.module.css'
 import { useNavigate } from 'react-router-dom'
 import { useCallback } from 'react'
 
+import { tItemsDynamic } from '@/shared/i18n/tItemsDynamic'
+
 type ItemListCardProps<TSkeleton extends boolean = false> = {
   item: TSkeleton extends true ? IItem | undefined : IItem
   isLoading?: TSkeleton
@@ -62,7 +64,7 @@ const ItemListCard = <TSkeleton extends boolean = false>({
           component="span"
           className={styles.category}
         >
-          {t(`categories.${item.category}`)}
+          {tItemsDynamic(t, `categories.${item.category}`)}
         </Box>
         <Title
           className={styles.title}

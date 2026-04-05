@@ -1,4 +1,35 @@
 {
+  "pages": {
+    "list": {
+      "title": "Мои объявления",
+      "calculatingCount": "Считаем число объявлений...",
+      "listingsCount_one": "{{count}} объявление",
+      "listingsCount_few": "{{count}} объявления",
+      "listingsCount_many": "{{count}} объявлений",
+      "listingsCount_other": "{{count}} объявлений"
+    },
+    "itemEdit": {
+      "title": "Редактирование объявления",
+      "save": "Сохранить",
+      "cancel": "Отменить",
+      "draftRestore": {
+        "description": "Найден сохранённый черновик этого объявления. Восстановить введённые ранее данные?",
+        "restore": "Восстановить",
+        "discard": "Нет, начать заново"
+      }
+    },
+    "itemView": {
+      "publishedAt": "Опубликовано: {{date}}",
+      "editedAt": "Отредактировано: {{date}}",
+      "edit": "Редактировать",
+      "backToList": "← Вернуться к списку"
+    },
+    "searchPlaceholder": "Найти объявление..."
+  },
+  "theme": {
+    "toggleToDark": "Включить тёмную тему",
+    "toggleToLight": "Включить светлую тему"
+  },
   "edit": {
     "common": {
       "category": {

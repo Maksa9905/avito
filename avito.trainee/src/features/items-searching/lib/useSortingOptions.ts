@@ -1,5 +1,7 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+
+import { tItemsDynamic } from '@/shared/i18n/tItemsDynamic'
 import {
   EItemsSortColumn,
   EItemsSortDirection,
@@ -20,7 +22,7 @@ export const useSortingOptions = () => {
   return useMemo(
     () =>
       sortingOptions.map((option) => ({
-        title: t(option.translationKey),
+        title: tItemsDynamic(t, option.translationKey),
         value: option.column,
         direction: option.direction,
       })),

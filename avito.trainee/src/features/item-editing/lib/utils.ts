@@ -1,6 +1,7 @@
 import type { TFunction } from 'i18next'
 
 import { EItemCategory } from '@/entities/items'
+import { tItemsDynamic } from '@/shared/i18n/tItemsDynamic'
 
 import { ITEM_EDITING_FORM_FIELDS } from './detailedFormConfig'
 
@@ -48,7 +49,7 @@ export function getFormValidationRules(
         const errorKey = def.validate(value as never)
         return errorKey === null
           ? null
-          : t(getFieldErrorI18nKey(category, fieldName, errorKey))
+          : tItemsDynamic(t, getFieldErrorI18nKey(category, fieldName, errorKey))
       },
     ]),
   )

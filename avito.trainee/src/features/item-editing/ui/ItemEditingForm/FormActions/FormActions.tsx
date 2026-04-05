@@ -18,7 +18,7 @@ type FormActionsProps = {
 }
 
 const FormActions = ({ onSave, onCancel }: FormActionsProps) => {
-  const { t } = useTranslation('ads')
+  const { t } = useTranslation('items')
   const { common, ...detailedForms } = useFormContext()
   const isFormValid = useItemEditingFormValidity()
 
@@ -43,13 +43,13 @@ const FormActions = ({ onSave, onCancel }: FormActionsProps) => {
         onClick={handleSave}
         variant="filled"
       >
-        {t('editPage.save')}
+        {t('pages.itemEdit.save')}
       </Button>
       <Button
         variant="default"
         onClick={handleCancel}
       >
-        {t('editPage.cancel')}
+        {t('pages.itemEdit.cancel')}
       </Button>
     </Stack>
   )

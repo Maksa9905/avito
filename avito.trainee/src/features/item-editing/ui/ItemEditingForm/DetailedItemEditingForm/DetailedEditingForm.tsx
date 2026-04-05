@@ -14,6 +14,7 @@ import { Stack, Title } from '@mantine/core'
 
 import styles from './DetailedEditingForm.module.css'
 import { cn } from '@/shared/utils/cn'
+import { tItemsDynamic } from '@/shared/i18n/tItemsDynamic'
 
 type DetailedEditingFormProps = {
   className?: string
@@ -85,7 +86,7 @@ const DetailedEditingForm = ({
             category={category!}
             fieldName={key}
             config={config}
-            label={t(getFieldTitleI18nKey(category!, key))}
+            label={tItemsDynamic(t, getFieldTitleI18nKey(category!, key))}
             inputProps={currentForm!.getInputProps(key)}
           />
         ))}

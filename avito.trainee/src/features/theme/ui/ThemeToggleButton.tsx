@@ -3,6 +3,7 @@ import {
   useMantineColorScheme,
 } from '@mantine/core'
 import { useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import MoonIcon from '@/shared/icons/MoonIcon'
 import SunIcon from '@/shared/icons/SunIcon'
@@ -10,6 +11,7 @@ import SunIcon from '@/shared/icons/SunIcon'
 import styles from './ThemeToggleButton.module.css'
 
 const ThemeToggleButton = () => {
+  const { t } = useTranslation('items')
   const { setColorScheme } = useMantineColorScheme()
   const computedScheme = useComputedColorScheme('light')
 
@@ -25,7 +27,7 @@ const ThemeToggleButton = () => {
       className={styles.tab}
       onClick={handleClick}
       aria-label={
-        isLight ? 'Включить тёмную тему' : 'Включить светлую тему'
+        isLight ? t('theme.toggleToDark') : t('theme.toggleToLight')
       }
     >
       {isLight ? <SunIcon /> : <MoonIcon />}

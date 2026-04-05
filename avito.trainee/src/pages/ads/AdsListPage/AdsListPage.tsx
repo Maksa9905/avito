@@ -14,7 +14,7 @@ import {
 import styles from './AdsListPage.module.css'
 
 const AdsListPage = () => {
-  const { t } = useTranslation('ads')
+  const { t } = useTranslation('items')
 
   return (
     <Stack className={styles.wrapper}>
@@ -24,7 +24,7 @@ const AdsListPage = () => {
             className={styles.title}
             order={1}
           >
-            {t('listPage.title')}
+            {t('pages.list.title')}
           </Title>
           <ItemsTotalCount />
         </header>

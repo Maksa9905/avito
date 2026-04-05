@@ -3,6 +3,7 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { EItemCategory } from '@/entities/items'
+import { tItemsDynamic } from '@/shared/i18n/tItemsDynamic'
 
 import {
   ItemEditingFormElement,
@@ -30,7 +31,10 @@ function formatParamValue(
     const option = configItem.options.find((option) => option.value === value)
 
     if (!option) return String(value)
-    return t(`form.edit.${category}.${key}.options.${option.value}`)
+    return tItemsDynamic(
+      t,
+      `form.edit.${category}.${key}.options.${option.value}`,
+    )
   }
 
   return String(value)
@@ -60,7 +64,7 @@ export function buildCharacteristicRows(
 
     rows.push({
       key,
-      label: t(`form.edit.${category}.${key}.title`),
+      label: tItemsDynamic(t, `form.edit.${category}.${key}.title`),
       value: formatParamValue(value, category, key, config, t),
     })
   }

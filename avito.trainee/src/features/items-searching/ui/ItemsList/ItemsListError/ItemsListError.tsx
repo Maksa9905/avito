@@ -13,10 +13,14 @@ type ItemsListErrorProps = {
 const ItemsListError = ({ type }: ItemsListErrorProps) => {
   const { t } = useTranslation('items')
 
-  const titleKey =
-    type === 'error' ? 'listLoadError.title' : 'listNotFound.title'
-  const descriptionKey =
-    type === 'error' ? 'listLoadError.description' : 'listNotFound.description'
+  const title =
+    type === 'error'
+      ? t('listLoadError.title')
+      : t('listNotFound.title')
+  const description =
+    type === 'error'
+      ? t('listLoadError.description')
+      : t('listNotFound.description')
 
   return (
     <Stack
@@ -41,7 +45,7 @@ const ItemsListError = ({ type }: ItemsListErrorProps) => {
           size="lg"
           ta="center"
         >
-          {t(titleKey)}
+          {title}
         </Text>
         <Text
           c="dimmed"
@@ -49,7 +53,7 @@ const ItemsListError = ({ type }: ItemsListErrorProps) => {
           ta="center"
           maw={400}
         >
-          {t(descriptionKey)}
+          {description}
         </Text>
       </Stack>
     </Stack>

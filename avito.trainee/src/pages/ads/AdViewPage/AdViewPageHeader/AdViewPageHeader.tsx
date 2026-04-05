@@ -9,7 +9,7 @@ import { useCallback, useMemo } from 'react'
 import styles from '../AdViewPage.module.css'
 
 const AdViewPageHeader = () => {
-  const { t, i18n } = useTranslation('ads')
+  const { t, i18n } = useTranslation('items')
 
   const navigate = useNavigate()
 
@@ -21,13 +21,13 @@ const AdViewPageHeader = () => {
   const publishedLabel = useMemo(() => {
     const date = formatDayMonthTime(item?.createdAt, locale)
 
-    return date ? t('viewPage.publishedAt', { date }) : ''
+    return date ? t('pages.itemView.publishedAt', { date }) : ''
   }, [item?.createdAt, locale, t])
 
   const editedLabel = useMemo(() => {
     const date = formatDayMonthTime(item?.updatedAt, locale)
 
-    return date ? t('viewPage.editedAt', { date }) : ''
+    return date ? t('pages.itemView.editedAt', { date }) : ''
   }, [item?.updatedAt, locale, t])
 
   const handleEdit = useCallback(() => {
@@ -54,7 +54,7 @@ const AdViewPageHeader = () => {
         rightSection={<EditIcon />}
         onClick={handleEdit}
       >
-        Редактировать
+        {t('pages.itemView.edit')}
       </Button>
       <Box
         component="span"
@@ -73,7 +73,7 @@ const AdViewPageHeader = () => {
         size="sm"
         className={styles.goback}
       >
-        ← Вернуться к списку
+        {t('pages.itemView.backToList')}
       </Button>
     </Box>
   )

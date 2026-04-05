@@ -1,6 +1,8 @@
 import { EItemCategory } from '@/entities/items'
 import { useTranslation } from 'react-i18next'
 
+import { tItemsDynamic } from '@/shared/i18n/tItemsDynamic'
+
 const categoriesOptions = Object.values(EItemCategory).map((value) => ({
   value,
   translationKey: `categories.${value}`,
@@ -11,7 +13,7 @@ const useCatigoriesOptions = () => {
 
   return categoriesOptions.map((option) => ({
     ...option,
-    label: t(option.translationKey),
+    label: tItemsDynamic(t, option.translationKey),
   }))
 }
 

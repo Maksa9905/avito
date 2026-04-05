@@ -11,6 +11,8 @@ import styles from './ItemGridCard.module.css'
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import { tItemsDynamic } from '@/shared/i18n/tItemsDynamic'
+
 type ItemGridCardProps<TSkeleton extends boolean = false> = {
   item: TSkeleton extends true ? IItem | undefined : IItem
   isLoading?: TSkeleton
@@ -56,7 +58,9 @@ const ItemGridCard = <TSkeleton extends boolean = false>({
           label={item.title}
         />
       )}
-      <Box className={styles.category}>{t(`categories.${item.category}`)}</Box>
+      <Box className={styles.category}>
+        {tItemsDynamic(t, `categories.${item.category}`)}
+      </Box>
       <Box className={styles.info}>
         <Title
           className={styles.title}

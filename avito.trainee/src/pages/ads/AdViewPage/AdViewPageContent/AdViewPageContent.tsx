@@ -1,4 +1,5 @@
 import { Box, Stack, Text, Title } from '@mantine/core'
+import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 
 import { ItemImage, NeedsRevisionAlert } from '@/entities/items'
@@ -12,6 +13,7 @@ import { cn } from '@/shared/utils/cn'
 import styles from '../AdViewPage.module.css'
 
 const AdViewPageContent = () => {
+  const { t } = useTranslation('items')
   const { id } = useParams<{ id: string }>()
   const { data: item } = useGetItemByIdQuery(id)
 
@@ -40,7 +42,7 @@ const AdViewPageContent = () => {
             className={styles.subtitle}
             order={2}
           >
-            Описание
+            {t('edit.common.description.label')}
           </Title>
           <Text>{item?.description}</Text>
         </Stack>

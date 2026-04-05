@@ -1,6 +1,8 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { tItemsDynamic } from '@/shared/i18n/tItemsDynamic'
+
 import { ITEM_EDITING_FORM_FIELDS } from '../lib/detailedFormConfig'
 import { isDetailedFieldInvalid } from '../lib/detailedFieldParams'
 
@@ -27,7 +29,7 @@ export function useNeedRevisionFields(
 
     for (const [key, config] of Object.entries(configMap)) {
       if (isDetailedFieldInvalid(config, params[key])) {
-        result.push(t(`form.edit.${category}.${key}.title`))
+        result.push(tItemsDynamic(t, `form.edit.${category}.${key}.title`))
       }
     }
 

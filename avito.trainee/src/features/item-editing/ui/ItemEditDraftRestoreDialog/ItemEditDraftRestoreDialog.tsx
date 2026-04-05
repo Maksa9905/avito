@@ -10,7 +10,7 @@ const ItemEditDraftRestoreDialog = ({
   onRestore,
   onDiscard,
 }: ItemEditDraftRestoreDialogProps) => {
-  const { t } = useTranslation('ads')
+  const { t } = useTranslation('items')
 
   return (
     <Dialog
@@ -20,20 +20,20 @@ const ItemEditDraftRestoreDialog = ({
       withCloseButton
     >
       <Stack gap="md">
-        <Text size="sm">{t('editPage.draftRestore.description')}</Text>
+        <Text size="sm">{t('pages.itemEdit.draftRestore.description')}</Text>
         <Group justify="flex-end">
           <Button
             variant="default"
             size="sm"
             onClick={onDiscard}
           >
-            {t('editPage.draftRestore.discard')}
+            {t('pages.itemEdit.draftRestore.discard')}
           </Button>
           <Button
             size="sm"
             onClick={onRestore}
           >
-            {t('editPage.draftRestore.restore')}
+            {t('pages.itemEdit.draftRestore.restore')}
           </Button>
         </Group>
       </Stack>

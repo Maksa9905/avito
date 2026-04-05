@@ -1,4 +1,5 @@
 import { Stack, Table, Title } from '@mantine/core'
+import { useTranslation } from 'react-i18next'
 import type { ItemDetailDto } from '../../api/types'
 import { useCharacteristicRows } from '../../lib/buildCharacteristicRows'
 
@@ -15,6 +16,7 @@ const ItemCharacteristicsTable = ({
   item,
   className,
 }: ItemCharacteristicsTableProps) => {
+  const { t } = useTranslation('items')
   const rows = useCharacteristicRows(item.category, item.params)
 
   if (!rows.length) return null
@@ -25,7 +27,7 @@ const ItemCharacteristicsTable = ({
         className={styles.subtitle}
         order={2}
       >
-        Характеристики
+        {t('form.edit.detailedSectionTitle')}
       </Title>
       <Table className={styles.table}>
         <Table.Tbody>

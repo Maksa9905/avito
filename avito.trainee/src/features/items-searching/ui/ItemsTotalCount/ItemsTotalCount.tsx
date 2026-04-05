@@ -6,15 +6,15 @@ import { useTranslation } from 'react-i18next'
 import { useTotalItems } from '../../lib/useTotalItems'
 
 const ItemsTotalCount = observer(() => {
-  const { t } = useTranslation('ads')
+  const { t } = useTranslation('items')
 
   const { total, isLoading } = useTotalItems()
 
   return (
     <Text className={styles.text}>
       {isLoading
-        ? t('listPage.calculatingCount')
-        : t('listPage.listingsCount', { count: total })}
+        ? t('pages.list.calculatingCount')
+        : t('pages.list.listingsCount', { count: total })}
     </Text>
   )
 })

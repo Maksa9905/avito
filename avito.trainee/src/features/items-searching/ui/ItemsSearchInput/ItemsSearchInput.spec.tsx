@@ -7,7 +7,7 @@ import { renderWithAdsListProviders } from '@/test/renderWithProviders'
 import ItemsSearchInput from './ItemsSearchInput'
 
 describe('ItemsSearchInput', () => {
-  it('показывает плейсхолдер из переводов ads', () => {
+  it('показывает плейсхолдер из словаря items', () => {
     renderWithAdsListProviders(<ItemsSearchInput />)
 
     expect(

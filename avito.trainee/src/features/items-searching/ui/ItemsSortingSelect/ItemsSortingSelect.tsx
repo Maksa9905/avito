@@ -10,6 +10,7 @@ import {
   useSortingOptions,
   selectSortingOptionTitle,
 } from '../../lib/useSortingOptions'
+import { tItemsDynamic } from '@/shared/i18n/tItemsDynamic'
 
 type ItemsSortingSelectProps = {
   className?: string
@@ -31,14 +32,11 @@ const ItemsSortingSelect = ({ className }: ItemsSortingSelectProps) => {
   )
 
   const sortingValue = useMemo(() => {
-    const title = t(
-      `sorting.${sortingOption.sortColumn}.${sortingOption.sortDirection}`,
-    )
+    const sortKey = `sorting.${sortingOption.sortColumn}.${sortingOption.sortDirection}`
+    const title = tItemsDynamic(t, sortKey)
 
     if (sortingOptions.find((option) => option.title === title))
-      return t(
-        `sorting.${sortingOption.sortColumn}.${sortingOption.sortDirection}`,
-      )
+      return tItemsDynamic(t, sortKey)
 
     return null
   }, [sortingOption.sortColumn, sortingOption.sortDirection, sortingOptions, t])

@@ -12,7 +12,7 @@ type ItemsSearchInputProps = {
 const SEARCH_DEBOUNCE_MS = 300
 
 const ItemsSearchInput = ({ className }: ItemsSearchInputProps) => {
-  const { t } = useTranslation('ads')
+  const { t } = useTranslation('items')
 
   const { query, setQuery } = useItemsListQueryParams()
 
@@ -37,7 +37,7 @@ const ItemsSearchInput = ({ className }: ItemsSearchInputProps) => {
   return (
     <TextInput
       variant="filled"
-      placeholder={t('searchAd')}
+      placeholder={t('pages.searchPlaceholder')}
       rightSection={<SearchIcon />}
       value={value}
       onChange={handleChange}

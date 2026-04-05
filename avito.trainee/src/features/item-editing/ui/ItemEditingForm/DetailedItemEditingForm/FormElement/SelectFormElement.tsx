@@ -6,6 +6,8 @@ import type { GetInputPropsReturnType } from '@mantine/form'
 import { useTranslation } from 'react-i18next'
 import { useMemo } from 'react'
 
+import { tItemsDynamic } from '@/shared/i18n/tItemsDynamic'
+
 import styles from './FormElement.module.css'
 
 type SelectFormElementProps = {
@@ -30,7 +32,10 @@ const SelectFormElement = ({
     () =>
       options.map((opt) => ({
         value: opt.value,
-        label: t(getFieldSelectOptionI18nKey(category, fieldName, opt.value)),
+        label: tItemsDynamic(
+          t,
+          getFieldSelectOptionI18nKey(category, fieldName, opt.value),
+        ),
       })),
     [category, fieldName, options, t],
   )

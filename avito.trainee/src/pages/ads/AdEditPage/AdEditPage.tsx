@@ -28,7 +28,7 @@ import {
 } from '@/features/ai-assistant'
 
 export function AdEditPage() {
-  const { t } = useTranslation('ads')
+  const { t } = useTranslation('items')
   const { id: itemId } = useParams<{ id: string }>()
 
   const { data: item, isLoading } = useGetItemByIdQuery(itemId)
@@ -155,7 +155,7 @@ export function AdEditPage() {
             className={styles.title}
             order={1}
           >
-            {t('editPage.title')}
+            {t('pages.itemEdit.title')}
           </Title>
         </Box>
         <FormProvider value={formContextValue}>
