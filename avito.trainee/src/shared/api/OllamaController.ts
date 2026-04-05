@@ -1,7 +1,10 @@
 import { Ollama } from 'ollama'
 
+const ollamaHost =
+  import.meta.env.VITE_OLLAMA_HOST ?? 'http://192.168.0.100:11434'
+
 export const ollama = new Ollama({
-  host: 'http://192.168.0.100:11434',
+  host: ollamaHost,
 })
 
 export enum ERole {

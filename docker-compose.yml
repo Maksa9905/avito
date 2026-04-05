@@ -1,0 +1,65 @@
+services:
+  backend:
+    build:
+      context: ./avito.backend
+    container_name: backend
+    ports:
+      - '8080:8080'
+    networks:
+      - app-net
+
+  frontend:
+    build:
+      context: ./avito.trainee
+    container_name: frontend
+    ports:
+      - '3000:3000'
+    environment:
+      VITE_API_URL: http://localhost:8080
+      VITE_OLLAMA_HOST: http://localhost:11434
+    depends_on:
+      - backend
+      - ai-asistent
+    networks:
+      - app-net
+
+  ai-asistent:
+    image: ollama/ollama:latest
+    container_name: ai-asistent
+    ports:
+      - '11434:11434'
+    volumes:
+      - ollama-data:/root/.ollama
+    networks:
+      - app-net
+
+  ollama-pull-models:
+    image: ollama/ollama:latest
+    container_name: ollama-pull-models
+    environment:
+      OLLAMA_HOST: http://ai-asistent:11434
+    volumes:
+      - ollama-data:/root/.ollama
+    networks:
+      - app-net
+    depends_on:
+      - ai-asistent
+    entrypoint: ['/bin/sh', '-c']
+    command:
+      - |
+        set -e
+        i=0
+        while [ $$i -lt 90 ]; do
+          if ollama list >/dev/null 2>&1; then break; fi
+          i=$$((i + 1))
+          sleep 2
+        done
+        ollama pull deepseek-r1:8b
+    restart: 'no'
+
+networks:
+  app-net:
+    driver: bridge
+
+volumes:
+  ollama-data:

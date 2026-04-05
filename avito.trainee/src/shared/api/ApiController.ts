@@ -17,7 +17,7 @@ export class ApiRequestError extends Error {
 }
 
 export class ApiController {
-  private static readonly fallbackBaseUrl = 'http://localhost:3000/api'
+  private static readonly fallbackBaseUrl = 'http://localhost:8080'
 
   private static client: AxiosInstance | null = null
 
