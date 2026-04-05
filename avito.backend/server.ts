@@ -151,6 +151,7 @@ fastify.put<ItemUpdateRequest>('/items/:id', (request, reply) => {
       id: ITEMS[itemIndex].id,
       createdAt: ITEMS[itemIndex].createdAt,
       updatedAt: new Date().toISOString(),
+      images: ITEMS[itemIndex].images ?? [],
       ...parsedData,
     };
     return { success: true };

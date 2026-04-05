@@ -1,16 +1,15 @@
 import type { TFunction } from 'i18next'
+import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { EItemCategory } from '@/entities/items'
-
-import { ITEM_EDITING_FORM_FIELDS } from './detailedFormConfig'
-import { isDetailedFieldInvalid } from './detailedFieldParams.ts'
 
 import {
   ItemEditingFormElement,
   type ItemEditingFieldConfig,
 } from '../model/types'
-import { useTranslation } from 'react-i18next'
-import { useMemo } from 'react'
+import { ITEM_EDITING_FORM_FIELDS } from './detailedFormConfig'
+import { isDetailedFieldInvalid } from './detailedFieldParams'
 
 function formatParamValue(
   value: unknown,
