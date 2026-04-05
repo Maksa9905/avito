@@ -26,6 +26,7 @@ import {
   ImproveDescriptionAiButton,
   RecommendedPriceAiButton,
 } from '@/features/ai-assistant'
+import PageContainer from '@/widgets/PageContainer'
 
 export function AdEditPage() {
   const { t } = useTranslation('items')
@@ -144,52 +145,52 @@ export function AdEditPage() {
   )
 
   return (
-    <Stack className={styles.wrapper}>
+    <PageContainer
+      classNames={{ container: styles.container, wrapper: styles.wrapper }}
+    >
       <ItemEditDraftRestoreDialog {...restoreDraftDialog} />
-      <Stack className={styles.container}>
-        <Box
-          component="header"
-          className={styles.header}
+      <Box
+        component="header"
+        className={styles.header}
+      >
+        <Title
+          className={styles.title}
+          order={1}
         >
-          <Title
-            className={styles.title}
-            order={1}
-          >
-            {t('pages.itemEdit.title')}
-          </Title>
-        </Box>
-        <FormProvider value={formContextValue}>
-          <Stack className={styles.forms}>
-            <CommonItemEditingForm
-              isLoading={isLoading}
-              priceRightSection={
-                <RecommendedPriceAiButton
-                  onApply={handleApplyAiPrice}
-                  onGetValues={handleGetValues}
-                />
-              }
-            />
-            <Divider className={styles.divider} />
-            <DetailedEditingForm
-              className={styles.form}
-              isLoading={isLoading}
-            />
-            <Divider className={styles.divider} />
-            <Stack className={styles.descriptionContainer}>
-              <DescriptionTextField isLoading={isLoading} />
-              <ImproveDescriptionAiButton
-                className={styles.aiButton}
-                onApply={handleApplyAiDescription}
+          {t('pages.itemEdit.title')}
+        </Title>
+      </Box>
+      <FormProvider value={formContextValue}>
+        <Stack className={styles.forms}>
+          <CommonItemEditingForm
+            isLoading={isLoading}
+            priceRightSection={
+              <RecommendedPriceAiButton
+                onApply={handleApplyAiPrice}
                 onGetValues={handleGetValues}
               />
-            </Stack>
-          </Stack>
-          <FormActions
-            onCancel={handleCancel}
-            onSave={handleSave}
+            }
           />
-        </FormProvider>
-      </Stack>
-    </Stack>
+          <Divider className={styles.divider} />
+          <DetailedEditingForm
+            className={styles.form}
+            isLoading={isLoading}
+          />
+          <Divider className={styles.divider} />
+          <Stack className={styles.descriptionContainer}>
+            <DescriptionTextField isLoading={isLoading} />
+            <ImproveDescriptionAiButton
+              className={styles.aiButton}
+              onApply={handleApplyAiDescription}
+              onGetValues={handleGetValues}
+            />
+          </Stack>
+        </Stack>
+        <FormActions
+          onCancel={handleCancel}
+          onSave={handleSave}
+        />
+      </FormProvider>
+    </PageContainer>
   )
 }

@@ -1,18 +1,7 @@
-
-.wrapper {
-  width: 100%;
-  min-height: 100dvh;
-  padding: 32px;
-  padding-top: 12px;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   gap: var(--mantine-spacing-lg);
-  max-width: 1318px;
-  width: 100%;
-  margin: 0 auto;
 }
 
 .forms {

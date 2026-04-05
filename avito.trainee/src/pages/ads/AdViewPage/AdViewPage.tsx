@@ -1,7 +1,7 @@
-import { Divider, Stack } from '@mantine/core'
+import { Divider } from '@mantine/core'
 import { useParams } from 'react-router-dom'
 
-import { cn } from '@/shared/utils/cn'
+import PageContainer from '@/widgets/PageContainer'
 import { useGetItemByIdQuery } from '@/features/item-editing'
 
 import AdViewPageHeader from './AdViewPageHeader'
@@ -15,18 +15,16 @@ export const AdViewPage = () => {
   const { isLoading, isPending } = useGetItemByIdQuery(id)
 
   return (
-    <Stack
-      className={cn(
-        styles.wrapper,
-        Boolean(isLoading || isPending) && styles.loading,
-      )}
+    <PageContainer
+      classNames={{
+        container: styles.container,
+        wrapper: isLoading || isPending ? styles.loading : undefined,
+      }}
     >
-      <Stack className={styles.container}>
-        <AdViewPageHeader />
-        <Divider />
-        <AdViewPageContent />
-      </Stack>
-    </Stack>
+      <AdViewPageHeader />
+      <Divider />
+      <AdViewPageContent />
+    </PageContainer>
   )
 }
 
