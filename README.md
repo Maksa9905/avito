@@ -46,3 +46,9 @@ docker exec ai-asistent ollama pull deepseek-r1:8b
 1. **Бэкенд** (`avito.backend`): `npm ci` → `npm start` (порт **8080**).
 2. **Фронтенд** (`avito.trainee`): `npm install` → `npm run dev` (порт **3000**). API по умолчанию: `http://localhost:8080`.
 3. **Ollama** установить локально или поднять отдельно; при необходимости задать `VITE_OLLAMA_HOST` в `.env` фронтенда (см. `OllamaController`).
+
+## Какие самостоятельные решения были приняты?
+
+1) На стороне бэка стал передавать `id` и `images`. Изображения - плейсхолдеры для теста `<ItemImages />`
+
+2) Пофиксил проблему с `CORS`, установив на бэке библиотеку `@fastify/cors`. Без нее PUT-запрос отдавал CORS-ошибку 
